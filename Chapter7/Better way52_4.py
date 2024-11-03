@@ -2,6 +2,8 @@ import subprocess
 import os
 
 # 시스템에 openssl을 설치하지 않은 경우에는 작동하지 않을 수 있다.
+
+# 각각의 프로세스를 병렬로 실행, 병렬로 실행하며 입력을 소비하고 output을 받아온다.
 def run_encrypt(data):
     env = os.environ.copy()
     env['password'] = 'zf7ShyBhZOraQDdE/FiZpm/m/8f9X+M1'

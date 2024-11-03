@@ -10,6 +10,7 @@ def consumer():
     print('소비자 작업중')
     # Doing work
     print('소비자 완료')
+    # 입력 큐가 다 소진될 때까지 기다릴 수 있다.
     in_queue.task_done()  # 세 번째로 실행됨
 
 thread = Thread(target=consumer)

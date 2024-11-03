@@ -75,6 +75,8 @@ def simulate(grid):
             step_cell(y, x, grid.get, next_grid.set)
     return next_grid
 
+# game_logic 함수에 I/O(소켓 통신 등)가 필요하다면? -> I/O를 병렬로 수행해서 각 세대를 I/O에 걸리는 시간 안에 계산할 수 있게 만든다.
+
 class ColumnPrinter:
     def __init__(self):
         self.columns = []

@@ -1,7 +1,7 @@
 def factorize(number):
     for i in range(1, number + 1):
         if number % i == 0:
-            yield i
+            yield i # 제너레이터 생성
 
 import time
 

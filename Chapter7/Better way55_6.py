@@ -76,3 +76,9 @@ stop_threads(resize_queue, resize_threads)
 stop_threads(upload_queue, upload_threads)
 
 print(done_queue.qsize(), '개의 원소가 처리됨')
+
+
+"""
+- I/O 위주의 프로그램인 경우, 파이프라인 매우 유용
+- 동시성 파이프라인의 문제점(바쁜 대기, 작업자에게 종료 알리는 방법 등) -> Queue 클래스로 해결(블로킹, 버퍼 크기 지정, join을 통한 완료 대기)
+"""

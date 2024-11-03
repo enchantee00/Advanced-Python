@@ -128,3 +128,8 @@ with contextlib.redirect_stderr(fake_stderr):
     thread.join()
 
 print(fake_stderr.getvalue())
+
+"""
+I/O는 예외가 발생할 경우가 높다. -> game logic에 I/O 작업이 있다면 해당 함수에서 예외가 발생할 수 있음
+하지만 스레드가 시작하거나 스레드가 종료하기를 기다리는 코드에게 스레드 실행 중에 발생한 예외를 돌려주는 파이썬 내장 기능 없다. 이로 인해 스레드 디버깅 더 어려움
+"""

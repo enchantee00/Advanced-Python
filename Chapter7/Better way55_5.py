@@ -55,10 +55,10 @@ for thread in threads:
 
 for _ in range(1000):
     download_queue.put(object())
-
+# 작업을 모두 넣고 난 후에 close() 함수로 큐의 마지막에 SENTINEL을 넣어준다. -> 큐에서 SENTINEL에 다다르면 스레드 종료
 download_queue.close()
 
-download_queue.join()
+download_queue.join() # 작업 완료를 기다린다. 완료되면(= 다음 큐에 모든 작업이 들어갔다면) 동일하게 SENTINEL을 넣는다.
 resize_queue.close()
 resize_queue.join()
 upload_queue.close()
@@ -67,3 +67,5 @@ print(done_queue.qsize(), '개의 원소가 처리됨')
 
 for thread in threads:
     thread.join()
+
+# join()?? 사용하는 기준??

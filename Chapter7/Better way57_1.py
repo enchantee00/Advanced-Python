@@ -28,7 +28,7 @@ class Grid:
             output += '\n'
         return output
 
-
+# 여러 스레드에서 인스턴스를 동시에 사용해도 데이터 경합이 없다(안전한 하위 클래스를 정의할 수 있다)
 class LockingGrid(Grid):
     def __init__(self, height, width):
         super().__init__(height, width)
@@ -72,7 +72,7 @@ def game_logic(state, neighbors):
         if neighbors == 3:
             return ALIVE # 다시 생성됨
     #여기서 블러킹 I/O를 수행한다.
-    #data = my_socket.recv(100)
+    # data = my_socket.recv(100)
     return state
 
 def step_cell(y, x, get, set):
@@ -140,3 +140,5 @@ for i in range(5):
     grid = simulate_threaded(grid)  # 바뀐부분
 
 print(columns)
+
+# 세대가 진행될 때마다 모든 스레드가 시작되고 끝난다 -> 상당히 큰 부가 비용 유발
