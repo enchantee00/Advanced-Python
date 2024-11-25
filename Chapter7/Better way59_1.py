@@ -173,6 +173,7 @@ grid.set(2, 3, ALIVE)
 grid.set(2, 4, ALIVE)
 
 columns = ColumnPrinter()
+# 실행기: 사용할 스레드 미리 할당 -> simulate_pool을 실행할 때마다 스레드를 시작하는 데 필요한 비용이 들지 않는다.
 with ThreadPoolExecutor(max_workers=10) as pool:
     for i in range(5):
         columns.append(str(grid))

@@ -118,9 +118,9 @@ def simulate_pipeline(grid, in_queue, out_queue):
     for item in out_queue:  # 팬인
         y, x, next_state = item
         if isinstance(next_state, Exception):
-            raise SimulationError(y, x) from next_state
+            raise SimulationError(y, x) from next_state6ㅛ
         next_grid.set(y, x, next_state)
 
-    return next_grid
+    return next_grid2020
 
 simulate_pipeline(Grid(1, 1), in_queue, out_queue)

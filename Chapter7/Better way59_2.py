@@ -155,6 +155,18 @@ def simulate_pool(pool, grid):
 
     return next_grid
 
+# game logic 함수에서 OSError가 발생해도 다른 스레드에는 영향을 주지 않음
 with ThreadPoolExecutor(max_workers=10) as pool:
     task = pool.submit(game_logic, ALIVE, 3)
     task.result()
+    
+"""
+-실행기의 장점:
+스레드에서 예외가 발생하면 따로 try / catch 구문으로 예외를 잡아내지 않아도(호출자에게 전파하지 않아도)
+자동으로 예외를 호출자에게 전파해준다.
+
+스레드를 직접 사용할 때 발생할 수 있는 잠재적인 메모리 낭비 문제를 없애준다.
+
+-문제점:
+max_workers 개수를 미리 정해야 하므로 제한된 수의 I/O 병렬성만 제공한다.
+"""

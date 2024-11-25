@@ -3,7 +3,7 @@
 class EOFError(Exception):
     pass
 
-
+# 서버와 클라이언트의 공통 기능(비동기 읽기 / 쓰기)
 class AsyncConnectionBase:
     def __init__(self, reader, writer):  # 변경됨
         self.reader = reader  # 변경됨
@@ -31,6 +31,7 @@ CORRECT = '맞음'
 class UnknownCommandError(Exception):
     pass
 
+# 서버 세션 클래스
 class AsyncSession(AsyncConnectionBase):  # 변경됨
     def __init__(self, *args):
         super().__init__(*args)
@@ -186,3 +187,12 @@ async def main_async():
 
 asyncio.run(main_async())
 
+"""
+async 키워드: 
+- 비동기 함수 정의
+- 호출되면 실행되지 않고 코루틴 객체 반환
+
+await를 만난 작업은 대기 상태가 된다
+- 새로 호출된 비동기 함수(코루틴)
+- 대기 중이던 작업이 완료
+"""

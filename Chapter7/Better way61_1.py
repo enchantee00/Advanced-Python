@@ -101,6 +101,8 @@ class Client(ConnectionBase):
         self.secret = secret
         self.send(f'PARAMS {lower} {upper}')
         try:
+            # yield를 만나면 함수의 실행이 일시 중지되고 컨텍스트 블록으로 넘어간다 -> with 문으로 넘어간다
+            # 컨텍스트 블록 코드가 끝나면 다시 돌아온다
             yield
         finally:
             self._clear_state()
@@ -149,7 +151,7 @@ def run_server(address):
     with socket.socket() as listener:
         listener.bind(address)
         listener.listen()
-        while True:
+        while True: # 무한루프를 돌며 연결을 확인하고 연결이 돼 있으면 loop() 함수를 실행한다.
             connection, _ = listener.accept()
             thread = Thread(target=handle_connection,
                             args=(connection,),

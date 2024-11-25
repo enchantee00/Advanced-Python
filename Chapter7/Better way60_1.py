@@ -135,15 +135,19 @@ class ColumnPrinter:
 import asyncio
 
 async def simulate(grid):
+    # 모든 실행이 단일 스레드에서 이뤄지므로 락을 제공할 필요가 없다(데이터 경합 발생 X)
     next_grid = Grid(grid.height, grid.width)
 
     tasks = []
     for y in range(grid.height):
         for x in range(grid.width):
+            # step_cell이 즉시 호출되지 않고, await 식에 사용할 수 있는 coroutine 인스턴스를 반환(비동기 작업의 준비상태가 됨)
             task = step_cell(
                 y, x, grid.get, next_grid.set)  # 팬아웃
             tasks.append(task)
 
+    # gather는 모든 step_cell 코루틴을 이벤트 루프에 등록
+    # 이벤트 루프는 각 step_cell 작업을 가능한 동시에 실행
     await asyncio.gather(*tasks)  # 팬인
 
     return next_grid

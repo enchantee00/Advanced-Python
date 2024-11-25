@@ -90,7 +90,7 @@ def game_logic(state, neighbors):
         if neighbors == 3:
             return ALIVE # 다시 생성됨
     # 여기서 블러킹 I/O를 수행
-    #data = my_socket.recv(100)
+    # data = my_socket.recv(100)
     return state
 
 def game_logic_thread(item):

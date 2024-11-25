@@ -97,7 +97,7 @@ def count_neighbors(y, x, get):
         if state == ALIVE:
             count += 1
     # 여기서 블러킹 I/O를 수행한다
-    #data = my_socket.recv(100)
+    # data = my_socket.recv(100)
     return count
 
 def count_neighbors_thread(item):
