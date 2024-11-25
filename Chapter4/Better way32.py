@@ -7,4 +7,6 @@
 value = [len(x) for x in open('my_file.txt')]
 print(value)
 
-
+"""
+제너레이터 식이 이터레이터를 다른 제너레이터 하위 식으로 사용함으로써 제너레이터 식을 서로 합성할 수 있다
+"""

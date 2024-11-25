@@ -50,3 +50,8 @@ with open('address.txt', 'r', encoding='utf-8') as f:
     it = index_file(f)
     results = itertools.islice(it, 0, 10)
     print(list(results))
+
+"""
+제너레이터 -> 반환하기 전에 리스트에 모든 결과를 저장하지 않아도 됨
+입력이 아주 커도 출력 시퀀스를 만들 수 있다
+"""

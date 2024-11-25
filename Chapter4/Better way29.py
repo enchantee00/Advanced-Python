@@ -37,7 +37,7 @@ has_bug = {name: get_batches(stock.get(name, 0), 4)
 print('예상:', found)
 print('실졔: ', has_bug)
 
-#
+# 왈러스 연산자를 사용하면 리스트 컴프리헨션에서 위와 같이 조건문과 값 두 부분에 겹치는 작업을 줄일 수 있다. 
 found = {name: batches for name in order
          if (batches := get_batches(stock.get(name, 0), 8))}
 
@@ -75,6 +75,7 @@ stock = {
 
 order = ['나사못', '나비너트', '클립']
 
+# 이터레이터
 found = ((name, batches) for name in order
          if (batches := get_batches(stock.get(name, 0), 8)))
 print(next(found))

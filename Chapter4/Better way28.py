@@ -36,3 +36,9 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 filtered = [[x for x in row if x % 3 == 0]
             for row in matrix if sum(row) >= 10]
 print(filtered)
+
+
+"""
+제어 하위 식이 3개 이상인 경우는 피하라 -> 3개 이상이면 코드 읽기 어려움
+ex) 조건문 2개 / 루프 2개 / 조건문 1개, 루프 1개
+"""

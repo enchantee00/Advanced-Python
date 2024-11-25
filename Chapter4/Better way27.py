@@ -35,3 +35,7 @@ alt_dict = dict(map(lambda x: (x, x**2),
                 filter(lambda x: x % 2 == 0, a)))
 alt_set = set(map(lambda x: x**3,
               filter(lambda x: x % 3 == 0, a)))
+
+"""
+리스트 컴프리헨션은 C언어로 구현된 Python의 내부 루프 사용 -> for loop보다 빠르다
+"""
