@@ -31,7 +31,7 @@ def run(func):
 
 run(animate)
 
-#
+# 파이썬 인터프리터가 for loop를 내포시키고 yield 식을 처리하도록 만든다
 def animate_composed():
     yield from move(4, 5.0)
     yield from pause(3)
@@ -69,3 +69,7 @@ print(f'합성 사용: {comparison:.2f}s')
 
 reduction = -(comparison - baseline) / baseline
 print(f'{reduction:.1%} 시간이 적게 듦')
+
+"""
+제너레이터를 합성한다면 yield from을 사용하라 -> 여러 내장 제너레이터를 모아서 제너레이터 하나로 합성 가능
+"""

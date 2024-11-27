@@ -26,6 +26,8 @@ def run(it):
 
 run(wave(3.0, 8))
 
+# -> 고정된 진폭의 신호만 보낼 수 있다
+
 #
 def my_generator():
     received = yield 1
@@ -112,3 +114,9 @@ def run_cascading():
         transmit(output)
 
 run_cascading()
+
+
+"""
+send()로 데이터를 제너레이터에 주입할 수 있지만 
+합성할 제너레이터들의 입력으로 이터레이터를 전달하는 방식이 낫다
+"""
