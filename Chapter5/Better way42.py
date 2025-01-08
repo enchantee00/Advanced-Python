@@ -100,7 +100,8 @@ class Child(ApiClass):
 a = Child()
 print(f'{a.get()} 와 {a._value} 는 달라야 합니다.')
 
-#
+
+# 코드 작성을 제어할 수 없는 하위 클래스에서 이름 충돌이 일어나는 경우를 막고 싶을 때만 비공개 애트리뷰트를 사용할 것
 class ApiClass:
     def __init__(self):
         self.__value = 5    # 밑줄 2개!

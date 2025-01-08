@@ -94,7 +94,7 @@ book.report_grade('알버트 아인슈타인', '체육', 100, 0.40)
 book.report_grade('알버트 아인슈타인', '체육', 85, 0.60)
 print(book.average_grade('알버트 아인슈타인'))
 
-#
+# 코드에서 값을 관리하는 부분이 점점 복잡해지고 있다 -> 해당 기능 클래스로 분리
 grades = []
 grades.append((95, 0.45))
 grades.append((85, 0.55))

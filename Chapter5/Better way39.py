@@ -82,6 +82,8 @@ write_test_files(tmpdir)
 result = mapreduce(tmpdir)
 print(f'총 {result} 줄이 있습니다.')
 
+# @classmethod -> 팩토리 메서드를 구현할 때 사용(다양한 방법으로 객체 생성)
+
 ### GenericInputData와 PathInputData를 사용한 방법
 class GenericInputData:
     def read(self):

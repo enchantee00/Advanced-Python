@@ -76,7 +76,16 @@ class GoodWay(TimesSevenCorrect, PlusNineCorrect):
 foo = GoodWay(5)
 print('7 * (5 + 9) = 98이 나와야 하고 실제로도', foo.value)
 
-#
+# MRO(표준 메서드 결정 순서)를 활용
+"""
+<class '__main__.GoodWay'>
+<class '__main__.TimesSevenCorrect'>
+<class '__main__.PlusNineCorrect'>
+<class '__main__.MyBaseClass'>
+<class 'object'>
+"""
+# 상속 끝까지 가서 value를 정의하고 그 이후에 역순으로 계산을 수행한다.
+
 mro_str = '\n'.join(repr(cls) for cls in GoodWay.mro())
 print(mro_str)
 
